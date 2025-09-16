@@ -19,7 +19,9 @@ services:
     image: prom/node-exporter:v1.8.2
     container_name: node-exporter
     restart: unless-stopped
-    network_mode: host   # required to read host metrics
+    #network_mode: host   # required to read host metrics
+    ports:
+      - "9100:9100"
     pid: host
     volumes:
       - /proc:/host/proc:ro
