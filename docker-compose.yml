@@ -9,6 +9,7 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
     command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
       - '--storage.tsdb.retention.time=7d'       # keep last 7 days only
       - '--storage.tsdb.retention.size=500MB'    # limit storage size
       - '--web.max-connections=20'               # limit memory for web requests
